@@ -24,6 +24,8 @@ public class Candidato {
     }
     
     private String nombre;
+    private String apellido;
+    private String sueldoDeseado;
 
     /**
      * Get the value of nombre
@@ -43,4 +45,33 @@ public class Candidato {
         this.nombre = nombre;
     }
 
+    /**
+     * @return the apellido
+     */
+    public String getApellido() {
+        return apellido;
+    }
+
+    /**
+     * @param apellido the apellido to set
+     */
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    /**
+     * @return the sueldoDeseado
+     */
+    public String getSueldoDeseado() {
+        return sueldoDeseado;
+    }
+
+    /**
+     * @param sueldoDeseado the sueldoDeseado to set
+     */
+    public void setSueldoDeseado(String sueldoDeseado) {
+        this.sueldoDeseado = sueldoDeseado;
+    }
+
+    
 }

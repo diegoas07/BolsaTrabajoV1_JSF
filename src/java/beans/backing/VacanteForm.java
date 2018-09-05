@@ -6,9 +6,12 @@
 package beans.backing;
 
 import beans.model.Candidato;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.view.facelets.FaceletContext;
 
 /**
  *
@@ -43,11 +46,29 @@ public class VacanteForm {
 
     
     public String enviar(){
+        
+        System.out.println("Enviar() nombre= "+candidato.getNombre());  
+        System.out.println("Enviar() apellido= "+candidato.getApellido());  
+        System.out.println("Enviar() Sueldo deseado= "+candidato.getSueldoDeseado());  
+
+        
         if (this.candidato.getNombre().equals("Juan")) {
+            
+            if ("Perez".equals( this.candidato.getApellido() ) ) {
+                String mensaje = "Gracias pero juan perez ya trabaja con nosotros";
+                FacesMessage facemessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, mensaje, mensaje);
+                FacesContext faceContext = FacesContext.getCurrentInstance();
+                String clienteId = null;  // este es un mensaje global
+                faceContext.addMessage(clienteId, facemessage);
+                return "index";
+            }
+            
             return "exito";
         }else{
             return "fallo";
         }
+        
+        
     }
     
     
